@@ -12,3 +12,12 @@
 
 $body-font-family: 'Noto Sans';
 $heading-font-family: 'Noto Sans';
+
+// Global CSS / SASS
+a {
+  text-decoration: none;
+}
+
+.defaultFont-color {
+  color: #000000de !important;
+}
