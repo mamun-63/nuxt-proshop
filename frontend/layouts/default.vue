@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar hide-on-scroll height="60">
-      <nuxt-link class="ml-16 pl-12 text-h6 defaultFont-color" to="/">Proshop</nuxt-link>
+    <v-app-bar hide-on-scroll max-height="60">
+      <nuxt-link class="ml-16 pl-12 text-h6" to="/">Proshop</nuxt-link>
       <v-spacer/>
       <v-btn text class="text-button" to="/cart">
         <v-icon class="mr-1" small>mdi-cart</v-icon>
