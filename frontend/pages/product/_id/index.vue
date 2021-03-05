@@ -1,7 +1,7 @@
 <template>
   <div class="mt-16">
     <v-row>
-      <v-col cols="12" sm="5">
+      <v-col cols="12" sm="4">
         <v-img :src="`${product.image}`"></v-img>
       </v-col>
 
@@ -30,7 +30,7 @@
         </div>
       </v-col>
 
-      <v-col cols="12" sm="3">
+      <v-col cols="12" sm="4" class="pl-10">
         <v-card tile>
           <v-card-text>
             <div class="my-5 subtitle-1">
@@ -66,15 +66,11 @@ export default {
       product: {}
     }
   },
-created() {
-  console.log(this.$route.params.id, this.$products)
-  this.$products.map(item => {
-    if(item._id===this.$route.params.id) {
-      this.product = item
-    }
-  })
-  console.log(this.product)
-}
+  async created() {
+    console.log('params id ', this.$route.params.id)
+    const res = await this.$axios.get(`/api/product/${this.$route.params.id}`)
+    this.product = res.data
+  }
 }
 </script>
 

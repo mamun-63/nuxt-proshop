@@ -10,20 +10,19 @@
 </template>
 
 <script>
-import Product from './Product.vue'
+import Product from './Product'
 export default {
-  components: {
-    Product
-  },
   copmonents: {
+    Product
   },
   data() {
     return {
       products: []
     }
   },
-  created() {
-    this.products = this.$products
+  async created() {
+    const res = await this.$axios.get('/api/products')
+    this.products = res.data
   }
 }
 </script>
