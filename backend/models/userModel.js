@@ -1,0 +1,29 @@
+import mongoose from 'mongoose'
+
+const userSchema = mongoose.schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  isAdmin: {
+    type: Boolean,
+    required: true
+    default: false
+  },
+}, {
+  // added timestamps, so get createdAt and updatedAt automatically, can do it manually also
+  timestamps: true
+})
+
+const User = mongoose.model('User', userSchema)
+
+export default User
