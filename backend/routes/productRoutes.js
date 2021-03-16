@@ -22,7 +22,9 @@ router.get("/:id", asyncHandler (async (req, res) => {
   if(product) {
     res.json(product)
   } else {
-    res.status(404).json({message: 'Product not found'})
+    // As we habe made custom error handler, so we can through error now, by default it 500 if status not set
+    res.status(404)
+    throw new Error('Product not found')
   }
 }))
 

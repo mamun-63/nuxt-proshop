@@ -68,7 +68,7 @@ export default {
   },
   async created() {
     console.log('params id ', this.$route.params.id)
-    const res = await this.$axios.get(`/api/product/${this.$route.params.id}`)
+    const res = await this.$axios.get(`/api/products/${this.$route.params.id}`)
     this.product = res.data
   }
 }
