@@ -6,21 +6,20 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Find the best products for the cheapest price' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Find the best products for the cheapest price',
+      },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [
-    '~/plugins/products'
-  ],
+  plugins: ['~/plugins/products', '~/plugins/bus'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -55,11 +54,10 @@ export default {
     treeShake: true,
     optionsPath: './vuetify.options.js',
     options: {
-      customProperties: true
-    }
+      customProperties: true,
+    },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {
-  }
+  build: {},
 }
