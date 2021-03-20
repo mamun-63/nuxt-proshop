@@ -1,9 +1,9 @@
 import express from "express"
 import dotenv from "dotenv"
 import colors from "colors"
-import products from "./data/products.js"
 import connectDB from "./config/db.js"
 import productRoutes from "./routes/productRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
 import notFound from './middleware/errorMiddleware.js'
 import errorHandler from './middleware/errorMiddleware.js'
 
@@ -12,6 +12,8 @@ dotenv.config()
 connectDB()
 
 const app = express()
+
+app.use(express.json()) // that will allow us to accept json data in body / req.body
 
 // Middleware is a function that has access over req,res life cycle
 // after making a request, it will fire. check this.
@@ -32,6 +34,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/products", productRoutes)
+app.use("/api/users", userRoutes)
 
 
 // Cutom Error Middleware
