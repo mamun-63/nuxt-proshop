@@ -36,5 +36,18 @@ export default {
       messages: 0,
     }
   },
+
+  // Event Bus is working in before Mount mostly
+  beforeMount() {
+    this.$bus.$on('cartLength', (len) => {
+      console.log('bus is on')
+      this.messages = len
+    })
+  },
+  // local storage can be accessed only in mounted or  later
+  mounted() {
+    const items = JSON.parse(localStorage.getItem('cart-items'))
+    this.messages = items.length
+  },
 }
 </script>

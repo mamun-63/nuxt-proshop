@@ -7,7 +7,7 @@
           <v-alert
             v-show="cartItems.length === 0"
             border="top"
-            color="red lighten-2"
+            color="green lighten-1"
             dark
           >
             Your Shopping cart is empty.
@@ -43,10 +43,9 @@
             <v-card-text>
               <div class="text-h6">
                 ${{
-                  cartItems.reduce(
-                    (total, item) => item.qty * item.price + total,
-                    0
-                  )
+                  cartItems
+                    .reduce((total, item) => item.qty * item.price + total, 0)
+                    .toFixed(2)
                 }}
               </div>
             </v-card-text>
@@ -78,6 +77,11 @@
 
 <script>
 export default {
+  watch: {
+    cartItems() {
+      this.$bus.$emit('cartLength', this.cartItems.length)
+    },
+  },
   data() {
     return {
       cartItems: [],
