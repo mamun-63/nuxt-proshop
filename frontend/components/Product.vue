@@ -32,13 +32,13 @@
       </div>
     </v-card-text>
 
-    <v-divider class="mx-4"></v-divider>
+    <!-- <v-divider class="mx-4"></v-divider>
 
     <v-card-actions>
       <v-btn color="deep-purple lighten-2" text :to="`/product/${product._id}`">
         Details
       </v-btn>
-    </v-card-actions>
+    </v-card-actions> -->
   </v-card>
 </template>
 
@@ -49,12 +49,6 @@ export default {
       default: null,
       type: Object,
     },
-  },
-  data: () => ({
-    selection: 1,
-    imageUrl: '',
-  }),
-
-  methods: {},
+  }
 }
 </script>

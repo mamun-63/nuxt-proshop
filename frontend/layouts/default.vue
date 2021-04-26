@@ -46,8 +46,13 @@ export default {
   },
   // local storage can be accessed only in mounted or  later
   mounted() {
-    const items = JSON.parse(localStorage.getItem('cart-items'))
-    this.messages = items.length
+    if(localStorage.getItem('cart-items')) {
+      const items = JSON.parse(localStorage.getItem('cart-items'))
+      console.log('home page local items check', items.length)
+      this.messages = items.length
+    } else {
+      this.messages = 0
+    }
   },
 }
 </script>

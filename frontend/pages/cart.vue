@@ -1,11 +1,16 @@
 <template>
-  <div class="mt-16">
-    <nuxt-child />
+  <div>
+    <CartScreen />
   </div>
 </template>
 
 <script>
-export default {}
+import CartScreen from '../components/CartScreen'
+export default {
+  components: {
+    CartScreen,
+  },
+}
 </script>
 
 <style></style>

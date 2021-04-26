@@ -89,7 +89,9 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('product/getProducts').then((res) => {
+    if(this.$route.params.id) {
+      console.log('params id found', this.$route.params.id)
+      this.$store.dispatch('product/getProducts').then((res) => {
       this.loading = false
       console.log('response', res.data)
       const product = res.data.find(
@@ -128,6 +130,13 @@ export default {
         localStorage.setItem('cart-items', JSON.stringify(this.cartItems))
       }
     })
+    } else {
+      console.log('no id found in params')
+       if (localStorage.getItem('cart-items')) {
+         this.cartItems = JSON.parse(localStorage.getItem('cart-items'))
+       }
+       this.loading = false
+    }
   },
   methods: {
     onChange(item) {
