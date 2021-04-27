@@ -14,7 +14,9 @@
           </v-alert>
           <div class="d-flex" v-for="item in cartItems" :key="item.id">
             <v-col cols="4">
-              <v-img aspect-ratio="1.7" :src="item.image"></v-img>
+              <nuxt-link :to="`/product/${item.id}`">
+                <v-img aspect-ratio="1.7" :src="item.image"></v-img>
+              </nuxt-link>
             </v-col>
             <v-col cols="3">{{ item.name }}</v-col>
             <v-col cols="2">${{ item.price }}</v-col>
@@ -88,7 +90,7 @@ export default {
       loading: true,
     }
   },
-  created() {
+  mounted() {
     if(this.$route.params.id) {
       console.log('params id found', this.$route.params.id)
       this.$store.dispatch('product/getProducts').then((res) => {

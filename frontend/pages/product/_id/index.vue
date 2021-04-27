@@ -10,7 +10,7 @@
         <v-row align="center" class="mx-0">
           <v-rating
             :value="product.rating"
-            color="amber"
+            color="#FBC02D"
             dense
             half-increments
             readonly

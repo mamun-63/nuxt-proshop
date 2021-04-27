@@ -13,11 +13,11 @@
       <v-row align="center" class="mx-0">
         <v-rating
           :value="product.rating"
-          color="amber"
+          color="#FBC02D"
           dense
           half-increments
           readonly
-          size="14"
+          size="16"
         ></v-rating>
 
         <div class="grey--text ml-4">
