@@ -14,7 +14,7 @@ const protect = asyncHandler(async (req, res, next) => {
       // console.log(decoded)
       req.user = await User.findById(decoded.id).select('-password') // select except password
 
-      next()
+      next() // that means it will not go to the if(!token) portion as it resolves true
     }
   } catch (error) {
     console.error(error)

@@ -34,6 +34,16 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password) // this.password is coming from matchpassword
 }
 
+// before create/save a user module, run a pieace of middleware to encrypt password
+userSchema.pre('save', async function(next) {
+  if(!this.isModified('password')) {
+    next() // if not modified password then move on, dont modify the password
+  }
+
+  const salt = await bcrypt.genSalt(10)
+  this.password = bcrypt.hash(this.password, salt)
+})
+
 const User = mongoose.model("User", userSchema)
 
 export default User
