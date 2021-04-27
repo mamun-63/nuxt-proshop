@@ -13,7 +13,7 @@ connectDB()
 
 const app = express()
 
-app.use(express.json()) // that will allow us to accept json data in body / req.body
+app.use(express.json()) // body parser, that will allow us to accept json data in body / req.body
 
 // Middleware is a function that has access over req,res life cycle
 // after making a request, it will fire. check this.
