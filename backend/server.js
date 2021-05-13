@@ -26,6 +26,8 @@ app.use(express.json()) // body parser, that will allow us to accept json data i
 // cors policy problem, so added it
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
   next()
 })
 

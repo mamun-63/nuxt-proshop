@@ -9,7 +9,7 @@ export const mutations = {}
 export const actions = {
   async getSingleProduct(state, id) {
     try {
-      const res = await this.$axios.get(`./api/products/${id}`)
+      const res = await this.$axios.get(`/api/products/${id}`)
       return res
     } catch (error) {
       return error
@@ -17,7 +17,7 @@ export const actions = {
   },
   async getProducts(context) {
     try {
-      const res = await this.$axios.get('./api/products')
+      const res = await this.$axios.get('/api/products')
       return res
     } catch (error) {
       return error

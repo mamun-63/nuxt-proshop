@@ -31,7 +31,7 @@
       </v-col>
 
       <v-col cols="12" sm="4" class="pl-10">
-        <v-card tile class="elevation-5">
+        <v-card tile>
           <v-card-text>
             <div class="my-5 subtitle-1">
               <span class="">Price </span>

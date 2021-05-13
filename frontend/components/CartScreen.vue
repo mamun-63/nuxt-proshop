@@ -6,11 +6,11 @@
           <div class="text-uppercase headline mb-3">Shopping Cart</div>
           <v-alert
             v-show="cartItems.length === 0"
-            border="top"
-            color="green lighten-1"
-            dark
+            icon="mdi-firework"
+            outlined
+            class="mt-6"
           >
-            Your Shopping cart is empty.
+            Your shopping cart is empty .
           </v-alert>
           <div class="d-flex" v-for="item in cartItems" :key="item.id">
             <v-col cols="4">
@@ -158,7 +158,13 @@ export default {
       localStorage.setItem('cart-items', JSON.stringify(this.cartItems))
     },
 
-    onCheckout() {},
+    onCheckout() {
+      if(localStorage.getItem('user-info')) {
+        this.$router.push('/shipping')
+      } else {
+        this.$router.push('/login')
+      }
+    },
   },
 }
 </script>
